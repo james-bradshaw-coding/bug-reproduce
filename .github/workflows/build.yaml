@@ -16,6 +16,7 @@ jobs:
           distribution: temurin
           java-version: 21
       - run: |
+          chmod +x ./gradlew
           ./gradlew clean generateCrds --info --stacktrace
       - uses: actions/upload-artifact@v4
         if: success()
@@ -32,6 +33,7 @@ jobs:
           distribution: temurin
           java-version: 21
       - run: |
+          chmod +x ./gradlew
           # delete the java file
           rm -f ./src/main/java/me/james/Workaround.java
           ./gradlew clean generateCrds --info --stacktrace
