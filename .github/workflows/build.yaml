@@ -1,0 +1,37 @@
+name: build
+
+on:
+  push:
+    branches:
+      - fabric8crd
+
+jobs:
+  generateCRDSucessfully:
+    if: startsWith(github.repository, 'james-bradshaw-coding/')
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: 21
+      - run: |
+          ./gradlew clean generateCrds --info --stacktrace
+      - uses: actions/upload-artifact@v4
+        if: success()
+        with:
+          name: mycustomresource
+          path: ./build/resources/main/*.yml
+  generateCRDUnsuccessfully:
+    if: startsWith(github.repository, 'james-bradshaw-coding/')
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: 21
+      - run: |
+          # delete the java file
+          rm -f ./src/main/java/me/james/Workaround.java
+          ./gradlew clean generateCrds --info --stacktrace
