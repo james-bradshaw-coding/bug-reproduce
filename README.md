@@ -2,6 +2,8 @@
 
 This branch demonstrates how the new CRD generator will fail when Java doesn't exist in the project (Kotlin only project)
 
+**[Fabric8 GitHub Issue](https://github.com/fabric8io/kubernetes-client/issues/7041)**
+
 ## Reproduction Steps
 
 1. Create new basic Gradle project
