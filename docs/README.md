@@ -1,5 +1,7 @@
 # IntelliJ Helm UI Bug
 
+**YouTrack Issue:** [IDEA-382562](https://youtrack.jetbrains.com/issue/IDEA-382562)
+
 ## Details
 
 IntelliJ Version: 2025.2.5 (Build #IU-252.28238.7)  
