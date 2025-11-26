@@ -40,7 +40,12 @@ tasks {
     val outputClasspathElements = outputClassesDirs.map { d -> d.absolutePath }
 
     val classpathElements = listOf(outputClasspathElements, compileClasspathElements).flatten()
-    val filesToScan = listOf(outputClassesDirs).flatten()
+
+    // --- Filter files to scan - this is a workaround for https://github.com/fabric8io/kubernetes-client/issues/7041 ---
+    val filteredClassesDirs = outputClassesDirs.filter { it.exists() }
+    val filesToScan = listOf(filteredClassesDirs).flatten()
+    // -----
+
     val outputDir = sourceSet.output.resourcesDir
 
     doLast {

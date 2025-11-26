@@ -23,7 +23,7 @@ jobs:
         with:
           name: mycustomresource
           path: ./build/resources/main/*.yml
-  generateCRDUnsuccessfully:
+  generateCRDUnsuccessfullyPATCHED:
     if: startsWith(github.repository, 'james-bradshaw-coding/')
     runs-on: ubuntu-latest
     steps:
