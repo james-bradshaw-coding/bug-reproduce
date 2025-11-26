@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - fabric8crd
+      - fabric8crdv2-workaround
 
 jobs:
   generateCRDSucessfully:
